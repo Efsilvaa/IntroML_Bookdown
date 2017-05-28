@@ -12,23 +12,28 @@ github-repo: efsilvaa/IntroML_Bookdown
 description: "Esse site complementa as notas de aula do curso EPSXXXX: Introdução ao Aprendizado Máquina."
 ---
 
-# Prefácio
+# Prefácio {-}
 
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports, e.g., a math equation $a^2 + b^2 = c^2$.
+Esse livro complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máquina**.  As unidades apresentam os scripts em R dos exercícios apresentadados em sala.
 
-For now, you have to install the development versions of **bookdown** from Github:
+Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{ponto\}f{ponto\}Silva{em\}ufsc{ponto\}br
 
+## Estrutura do livro
+Os comandos em R serão apresentados blocos com o exemplo abaixo:
 ```{r eval=FALSE}
 devtools::install_github("rstudio/bookdown")
 ```
 
-Remember each Rmd file contains one and only one chapter, and a chapter is defined by the first-level heading `#`.
-
-To compile this example to PDF, you need to install XeLaTeX.
 
 ```{r include=FALSE}
+# To compile this example to PDF, you need to install XeLaTeX.
+
 # automatically create a bib database for R packages
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+# Sobre o Autor {-}
+
+bla bla bla ....
