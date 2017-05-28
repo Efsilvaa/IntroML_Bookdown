@@ -1,0 +1,5 @@
+book_filename: "bookdown-IntroML"
+language:
+  ui:
+    chapter_name: "Unidade "
+output_dir: docs
