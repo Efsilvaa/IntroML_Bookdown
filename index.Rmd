@@ -18,7 +18,7 @@ Esse livro complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máqu
 
 Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{ponto\}f{ponto\}Silva{em\}ufsc{ponto\}br
 
-## Estrutura do livro
+## Estrutura do livro {-}
 Os comandos em R serão apresentados blocos com o exemplo abaixo:
 ```{r eval=FALSE}
 devtools::install_github("rstudio/bookdown")
