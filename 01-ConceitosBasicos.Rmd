@@ -1,7 +1,7 @@
 
 
 # R Project - Conceitos Básicos {#ConceitosBasicos}
-Baseado nas notas aulas de Roger Peng(JHS) e no livro "R for Data Science, Garrett Grolemund e Hadley Wickham)
+Baseado nos livros de "R programming for Data Science" [Roger D. Peng] e "R for Data Science" [Garrett Grolemund e Hadley Wickham]
 
 
 ## Iniciando pelo básico
