@@ -177,7 +177,7 @@ attributes(m)
 _Matrizes_ normalmente são construídas _por colunas_, de modo que uma sequência de dados é lido como se estivesse se iniciando na posição superior esquerda, elemento na [linha,coluna] = [1,1], continuando até o último elemento da coluna, e assim por diante.
 
 ```{r}
- m <- matrix(1:6, nrow = 2, ncol = 3) S
+ m <- matrix(1:6, nrow = 2, ncol = 3)
  m
 ```
 

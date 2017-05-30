@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="methods.html">
-<link rel="next" href="final-words.html">
+<link rel="prev" href="intro.html">
+<link rel="next" href="estruturas-de-dados.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -168,15 +168,67 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="applications" class="section level1">
-<h1><span class="header-section-number">Unidade 7</span> Applications</h1>
-<p>Some <em>significant</em> applications are demonstrated in this chapter.</p>
-<div id="example-one" class="section level2">
-<h2><span class="header-section-number">7.1</span> Example one</h2>
+<div id="tipos-de-dados-classes-e-objetos" class="section level1">
+<h1><span class="header-section-number">Unidade 3</span> Tipos de Dados (<em>Classes e Objetos</em>)</h1>
+<p><strong>Tudo em R é objeto!!</strong> R tem cinco classes básicas ou <em>atômicas</em> de objetos: - caractere (string) - numérico (números reais) - inteiro - números complexos - Valores lógicos (TRUE/FALSE)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Caractere</span>
+x &lt;-<span class="st"> &quot;Bem vindo&quot;</span></code></pre></div>
+<div id="numeros" class="section level2">
+<h2><span class="header-section-number">3.1</span> Números</h2>
+<ul>
+<li>Números em R são geralmente tratados como objetos (ex. double precision real numbers)</li>
+<li><p>Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo <code>L</code></p></li>
+<li><p>O valor <code>NaN</code> representa um valor não identificado (<em>“not a number”</em>); e.g. 0 / 0; <code>NaN</code> pode também representar valores ausentes (não se preocupe agora com isso, mas mostra que a linguagem foi concebida para identificar essa situação )</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Numérico</span>
+x &lt;-<span class="st"> </span><span class="dv">5</span>
+x</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Inteiro (###Numérico</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">5</span>
+x</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div id="inteiro-raramente-usado" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Inteiro (<em>raramente usado</em>)</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>5L
+x</code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="example-two" class="section level2">
-<h2><span class="header-section-number">7.2</span> Example two</h2>
+<div id="numeros-complexos-uso-nao-muito-comum" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Números Complexos (<em>Uso não muito comum</em>)</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">1</span> +<span class="st"> </span>4i
+x</code></pre></div>
+<pre><code>## [1] 1+4i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.numeric</span>(x)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.integer</span>(x)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is.complex</span>(x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="logico" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Lógico</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+x</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="ot">TRUE</span>
 
+x &lt;-<span class="st"> </span>(<span class="dv">3</span> &lt;<span class="st"> </span><span class="dv">4</span>)
+x</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
 </div>
 </div>
             </section>
@@ -184,8 +236,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="methods.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estruturas-de-dados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -214,7 +266,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/041-application.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-Tipos_de_dados.Rmd",
 "text": "Edit"
 },
 "download": ["bookdown-IntroML.pdf", "bookdown-IntroML.epub"],
