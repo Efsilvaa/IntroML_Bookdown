@@ -1,13 +1,13 @@
 
 
-# Tipos de Dados (*Classes e Objetos*)
+# Tipos Básicos de Dados 
 __Tudo em R é objeto!!__
 R tem cinco classes básicas ou *atômicas* de objetos:
--   caractere (string)
--   numérico (números reais)
+-   numéro em geral (números reais)
 -   inteiro
 -   números complexos 
 -   Valores lógicos (TRUE/FALSE)
+-   caractere (string)
 
 ```{r}
 #Caractere
@@ -15,28 +15,19 @@ x <- "Bem vindo"
 ```
 
 ## Números
--   Números em R são geralmente tratados como objetos (ex. double
-    precision real numbers)
+-   Números em R são geralmente tratados como objetos (ex. Números reais)
 -   Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo ```L```
-
 -   O valor ```NaN``` representa um valor não identificado (*"not a number"*);
     e.g. 0 / 0; ```NaN``` pode também representar valores ausentes (não se preocupe agora com isso, mas mostra que a linguagem foi concebida para identificar essa situação )
 
-```{r}
-#Numérico
-x <- 5
-x
-is.numeric(x)
-is.integer(x)
-```
-```{r}
-#Inteiro (###Numérico
+###Numérico
 ```{r}
 x <- 5
 x
 is.numeric(x)
 is.integer(x)
 ```
+
 ###Inteiro (_raramente usado_)
 ```{r}
 x <- 5L
@@ -44,7 +35,6 @@ x
 is.numeric(x)
 is.integer(x)
 ```
-
 ###Números Complexos (_Uso não muito comum_)
 ```{r}
 x <- 1 + 4i
@@ -53,7 +43,8 @@ is.numeric(x)
 is.integer(x)
 is.complex(x)
 ```
-###Lógico
+
+##Lógico
 ```{r}
 x <- TRUE
 x
@@ -62,6 +53,13 @@ x <- TRUE
 x <- (3 < 4)
 x
 ```
+
+##Sequência de Caracteres
+```{r}
+x <- "Bem Vindo ao R e ao RStudio"
+x
+```
+
 
 #Estruturas de dados
 
