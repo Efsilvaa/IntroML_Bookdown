@@ -1,0 +1,7 @@
+# Instalando e carregando Pacotes
+
+Here is a review of existing methods.
+
+#Criando Projetos no RStudio
+
+Talvez seja melhor um arquico em separado
