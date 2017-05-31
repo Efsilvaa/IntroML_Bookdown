@@ -1,7 +1,10 @@
 # Instalando e carregando Pacotes
 
 Here is a review of existing methods.
+Posso referenciar direto o livro do marcelo Perlin, itens 2.6 a 2.16
+
+- Fica como se fosse outros tópicos em R
 
 #Criando Projetos no RStudio
 
-Talvez seja melhor um arquico em separado
+Talvez seja melhor um arquivo em separado

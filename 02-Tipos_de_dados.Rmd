@@ -2,6 +2,7 @@
 
 # Tipos Básicos de Dados 
 __Tudo em R é objeto!!__
+
 R tem cinco classes básicas ou *atômicas* de objetos:
 -   numéro em geral (números reais)
 -   inteiro

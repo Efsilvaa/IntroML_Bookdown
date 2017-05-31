@@ -14,14 +14,15 @@ description: "Esse site complementa as notas de aula do curso EPSXXXX: Introduç
 
 # Prefácio {-}
 
-Esse livro complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máquina**.  As unidades apresentam os scripts em R dos exercícios apresentadados em sala.
+Esse site complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máquina**.  As unidades apresentam os scripts em R dos exercícios apresentadados em sala.
 
 Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{ponto\}f{ponto\}Silva{em\}ufsc{ponto\}br
 
 ## Estrutura do livro {-}
 Os comandos em R serão apresentados blocos com o exemplo abaixo:
 ```{r eval=FALSE}
-devtools::install_github("rstudio/bookdown")
+x <- 1:10
+x
 ```
 
 
@@ -36,6 +37,11 @@ knitr::write_bib(c(
 
 # Sobre o Autor {-}
 
-bla bla bla ....
+Eduardo F. Silva
+Professor
+Departamento de Engenharia de Produção e Sistemas
+e\{ponto\}f\{ponto\}Silva\{em\}ufsc\{ponto\}br
 
-# (PART) Parte I {-}
+
+
+# (PART\*) Parte I {-}

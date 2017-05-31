@@ -1,8 +1,15 @@
 
 
 # R Project - Conceitos Básicos {#ConceitosBasicos}
-Baseado nos livros de "R programming for Data Science" [Roger D. Peng] e "R for Data Science" [Garrett Grolemund e Hadley Wickham]
 
+Referências utilizadas para esse capítulo:
+
+  - [R for Data Science. Garrett Grolemund e Hadley Wickham](http://r4ds.had.co.nz/)
+  - [R programming for Data Science. Roger D. Peng](https://bookdown.org/rdpeng/rprogdatascience/) 
+
+E recentemente encontrei um ótimo livro em português, criado pelo Prof. Marcelo Perlin da UFRGS, cuja parte de introdução ao R é bem completa e se encaixa perfeitamente ao nosso curso.
+
+  - [Processamento e Modelagem de Dados Financeiros com o R. Marcelo Perlin](https://msperlin.github.io/pmdfR-Online/introducao.html)
 
 ## Iniciando pelo básico
 
