@@ -1,0 +1,269 @@
+# Criação de Gráficos usando apenas o básico
+
+O objetivo dessa sessão é a familiarização com os tipos básicos de gráfico que podem ser usados para descrever o comportamento e o relacionamento entre os dados de um estudo estatístico.
+
+## Sumário dos 5 números
+
+O sumário dos 5 números é conhecido como um conjunto de estatísticas descritivas que revelam os percintis gerais mais significativos em uma amostra de dados.
+Estes são:
+
+    1. Mínimo
+    2. Primeiro quartil
+    3. Mediana
+    4. Terceiro quartil
+    5. Máximo
+    
+Por exemplo, em R podemos obter esse sumário por meio do comando `summary`.  Vamos carregar os dados "cars" que apresenta a velocidade e a distância de parada de alguns carros (gravado em 1920).
+
+```{r eval=FALSE}
+help("cars")
+data("cars")
+summary(cars)
+```
+    
+## Importância da visualização dos dados
+
+Apesar das várias medidas estatísticas descritivas disponível, a \@ref(dinoFig) mostra porque a visualização dos dados é **muito** importante.
+
+```{r dinoFig, echo = FALSE, fig.cap = "CITAR autor"}
+
+knitr::include_graphics("figuras\\DinoSequential.gif")
+
+```
+
+## Tipos básicos de gráficos
+
+Esse conteúdo foi adaptado do site [http://bl.ocks.org/patilv/raw/7360425/](http://bl.ocks.org/patilv/raw/7360425/)
+
+Inicialmente, será necessário simular alguns dados para serem usados como fonte na geração de gráficos.  Os dados serão armazenados em um *data frame* contendo 3 variáveis categóricas (*fatores em R*) e  4 variáveis contínuas.
+
+```{r}
+## Simulando os dados
+
+## 3 variáveis categóricas
+FacVar1 = as.factor(rep(c("level1", "level2"), 25))
+FacVar2 = as.factor(rep(c("levelA", "levelB", "levelC"), 17)[-51])
+FacVar3 = as.factor(rep(c("levelI", "levelII", "levelIII", "levelIV"), 13)[-c(51:52)])
+
+## 4 variáveis númericas
+set.seed(123)    # referência para uniformizar as variáveis geradas
+
+NumVar1 = round(rnorm(n = 50, mean = 1000, sd = 50), digits = 2)  ## Distribuição Normal
+NumVar2 = round(runif(n = 50, min = 500, max = 1500), digits = 2)  ## Distribuição Uniforme
+NumVar3 = round(rexp(n = 50, rate = 0.001))  ## Distribuição exponencial
+NumVar4 = 2001:2050
+
+simData = data.frame(FacVar1, FacVar2, FacVar3, NumVar1, NumVar2, NumVar3, NumVar4)
+```
+
+
+##Uma variávél contínua
+
+### Gráfico de pontos (scatter)
+```{r}
+plot(simData$NumVar1, type = "o")  ## Index plot
+```
+
+### Histograma
+```{r}
+hist(simData$NumVar1)  ## histogram
+```
+
+### Curva da densidade de probabilidade
+```{r}
+plot(density(simData$NumVar1))  ## Kernel density plot
+```
+
+### Boxplot
+```{r}
+boxplot(simData$NumVar1)  ## box plot
+```
+
+
+## Variável categórica (ou discreta)
+
+### Gráfico de barras (Total)
+```{r}
+plot(simData$FacVar3)  ## bar plot
+```
+
+
+## Duas Variáveis contínuas
+```{r}
+plot(simData$NumVar1, type = "o", ylim = c(0, max(simData$NumVar1, simData$NumVar2)))  ## index plot with one variable
+lines(simData$NumVar2, type = "o", lty = 2, col = "red")  ## add another variable
+```
+
+### Gráfico de densidade  de probabilidade (density plots)
+Exemplo de [https://stat.ethz.ch/pipermail/r-help/2006-August/111865.html](https://stat.ethz.ch/pipermail/r-help/2006-August/111865.html), onde um gráfico "vazio" é produzido e depois preeenchido com linhas (função `lines()`). 
+```{r}
+dv1 = density(simData$NumVar1)
+dv2 = density(simData$NumVar2)
+plot(range(dv1$x, dv2$x), range(dv1$y, dv2$y), type = "n", xlab = "NumVar1(red) and NumVar2 (blue)", 
+    ylab = "Density")
+lines(dv1, col = "red")
+lines(dv2, col = "blue")
+```
+
+### Gráfico de pontos x,y (scatterplots)
+```{r}
+plot(simData$NumVar1, simData$NumVar2)
+```
+
+## Duas Variáves categóricas
+
+### Mosaico (Mosaic plot)
+```{r}
+plot(table(simData$FacVar2, simData$FacVar3))
+```
+
+### Gráfico de Barras (barplots)
+```{r}
+bartable = table(simData$FacVar2, simData$FacVar3)  ## get the cross tab
+barplot(bartable, beside = TRUE, legend = levels(unique(simData$FacVar2)))  ## plot
+```
+
+### Barras Empillhadas (stacked)
+```{r}
+barplot(bartable, legend = levels(unique(simData$FacVar2)))  ## stacked
+```
+
+### Barras Empillhadas 100% (stacked 100%)
+Transformando a tabela para proporções
+```{r}
+barplot(prop.table(bartable, 2) * 100,
+        legend = levels(unique(simData$FacVar2)))  ## usando prop.table
+```
+
+##Duas variáveis: Uma categórica e outra numérica
+
+### Box plots: variáveis numéricas por categoria
+```{r}
+plot(simData$FacVar1, simData$NumVar1)
+```
+
+### Gráfico de densidade de probabilidade por categoria
+```{r}
+level1 = simData[simData$FacVar1 == "level1", ]
+level2 = simData[simData$FacVar1 == "level2", ]
+
+dv3 = density(level1$NumVar1)
+dv4 = density(level2$NumVar1)
+
+plot(range(dv3$x, dv4$x), range(dv3$y, dv4$y),
+     type = "n",
+     xlab = "NumVar1 at Level1 (red) and NumVar1 at Level2 (blue)", 
+     ylab = "Density")
+
+lines(dv3, col = "red")
+lines(dv4, col = "blue")
+```
+
+
+### Média de uma variável numérica considerando sua categoria
+Verifique como funciona `aggregate()`, e qual é o retorno de cada função usada como argumento.
+```{r}
+list(simData$FacVar3)
+aggregate(simData$NumVar1, list(simData$FacVar3), mean)
+meanagg = aggregate(simData$NumVar1, list(simData$FacVar3), mean)
+meanagg
+dotchart(meanagg$x, labels = meanagg$Group.1)  ## Dot Chart 
+```
+
+Gráfico de barras usando a média
+```{r}
+barplot(meanagg$x, names.arg = meanagg$Group.1)  ## Bar plot 
+```
+
+> Questão: O gráfico anterior é aproproado para comparar as médias (um valor pontual)?
+> Escolha um gráfico melhor :)
+
+## Três variáveis discretas (categorias ou fatores em R)
+
+Arrumando os gráficos matricialmente com a função `par()`
+```{r}
+par(mfrow = c(1, 2))
+
+bar1table = table(level1$FacVar2, level1$FacVar3)
+barplot(bar1table, beside = TRUE, main = "FacVar1=level1")
+
+bar2table = table(level2$FacVar2, level2$FacVar3)
+
+barplot(bar2table, beside = TRUE, main = "FacVar1=level2",
+        legend = levels(unique(level2$FacVar2)))
+
+par(mfrow = c(1,1)) #retornando ao normal
+```
+
+##Três Variáveis: Uma númérica e duas categóricas
+
+
+### Boxplot considerando  interação entre as duas variáveis categóricas
+
+Considerando que cada variável aleatória tem 3 categorias, existem seis pares possíves, cada um podendo influenciar a variável contínua de maneira distinta.
+```{r}
+boxplot(NumVar1 ~ interaction(FacVar1, FacVar2), data = simData)
+```
+
+## Mean of 1 Numeric over levels of two factor vars
+meanaggg = aggregate(simData$NumVar1, list(simData$FacVar1, simData$FacVar2), 
+    mean)
+meanaggg = meanaggg[order(meanaggg$Group.1), ]
+meanaggg$color[meanaggg$Group.2 == "levelA"] = "red"
+meanaggg$color[meanaggg$Group.2 == "levelB"] = "blue"
+meanaggg$color[meanaggg$Group.2 == "levelC"] = "darkgreen"
+
+dotchart(meanaggg$x, labels = meanaggg$Group.2, groups = meanaggg$Group.1, color = meanaggg$color)  ## dotchart
+plot of chunk unnamed-chunk-8
+
+
+interaction.plot(meanaggg$Group.2, meanaggg$Group.1, meanaggg$x, type = "b", 
+    col = c(1:2), pch = c(18, 24))  ## interaction plot - line plots of means
+plot of chunk unnamed-chunk-8
+
+
+## some a bar plot
+par(mfrow = c(1, 2))
+
+level1 = meanaggg[meanaggg$Group.1 == "level1", ]
+level2 = meanaggg[meanaggg$Group.1 == "level2", ]
+
+barplot(level1$x, names.arg = level1$Group.2, main = "FacVar1=level1")
+barplot(level2$x, names.arg = level2$Group.2, main = "FacVar1=level2")
+plot of chunk unnamed-chunk-8
+
+Three Variables: Two Numeric and One Factor Variables
+
+## Scatter plot with color identifying the factor variable
+par(mfrow = c(1, 1))
+plot(simData$NumVar1, simData$NumVar2, col = simData$FacVar1)
+legend("topright", levels(simData$FacVar1), fill = simData$FacVar1)
+plot of chunk unnamed-chunk-9
+
+Three Variables: Three Numeric Variables
+
+## NumVar4 is 2001 through 2050... possibly, a time variable - use that as
+## the x-axis
+plot(simData$NumVar4, simData$NumVar1, type = "o", ylim = c(0, max(simData$NumVar1, 
+    simData$NumVar2)))  ## join dots with lines
+
+lines(simData$NumVar4, simData$NumVar2, type = "o", lty = 2, col = "red")  ## add another line
+plot of chunk unnamed-chunk-10
+
+
+## Bubble plot - scatter plot of NumVar1 and NumVar2 with individual
+## observations sized by NumVar3
+## http://flowingdata.com/2010/11/23/how-to-make-bubble-charts/
+radius <- sqrt(simData$NumVar3/pi)
+symbols(simData$NumVar1, simData$NumVar2, circles = radius, inches = 0.25, fg = "white", 
+    bg = "red", main = "Sized by NumVar3")
+plot of chunk unnamed-chunk-10
+
+Scatterplot Matrix of all Numeric Vars, colored by a Factor variable
+
+pairs(simData[, 4:7], col = simData$FacVar1)
+plot of chunk unnamed-chunk-11
+
+References
+
+Besides the link from flowingdata.com referred to in the context of the bubble plot, additional websites were used as references. http://www.harding.edu/fmccown/r/ http://www.statmethods.net/

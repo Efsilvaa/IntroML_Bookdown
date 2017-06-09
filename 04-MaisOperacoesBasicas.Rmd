@@ -1,0 +1,19 @@
+# Mais operações básicas em R
+
+Para esse tópico vamos seguir como referência o [https://msperlin.github.io/pmdfR-Online/operacoes-basicas-no-r.html](capítulo 2 no livro do Marcelo Perlim).
+
+Finalmente, é importante ainda enfatizar os seguinte tópicos:
+
+## Função `sessionInfo()`
+
+Quando começamos a trabalhar com R, precisamos entender que estamos dentro de uma **sessão**, a qual contém nossas variáveis de ambiente, nossos dados, os pacotes carregados.  Quando iniciamos uma nova sessão em R (ou um novo projeto), um conjunto totalmente novo e vazio é criado, assim teremos novamente que carregar nossos dados,variáveis de ambiente, pacotes e etc. *Claro que todo esse comportamento pode ser configurado, mas vamos comecar com o básico :-) *
+
+Muitas vezes precisamos tirar uma foto da sessão para saber o que está carregado, para que outro analista possa replicar o mesmo ambiente e enventualmente confirmar as análises realizadas.  Para isso existe a função `sessionInfo()` que tem exatamente esta tarefa, mostrando quais pacotes estão carregados, inclusive anontando a versão  do pacote utilizado.
+
+Teste a função `sessionInfo()` e verifique o que está carregado na sua sessão!
+
+
+```{r eval=FALSE}
+sessionInfo()
+```
+

@@ -1,0 +1,43 @@
+# Criação de Projetos em R
+
+
+##Criando Projetos no RStudio
+
+Um projeto em R é um *container* da sua sessão.  Todo o seu ambiente, variáveis e pacotes carregados, ficam confinados no projeto.  Fisicamente, o seu projeto é um diretório contendo um arquivo "nome_do_projeto.Rproj".  A forma como seu projeto é organizado pode contribuir significativamente no resultado do seu trabalho.
+
+Cada pesquisador possui seu estilo próprio de organizar seu projeto.  Enquanto você ainda não desenvolveu o seu, vou sugerir uma organização simples e bem básica que incorpora algumas das boas práticas a serem observadas quando trabalhando em projetos R dentro do [RStudio](www.rstudio.com).  A base para este esquema foi criada a partir das recomendações da pesquisadora  [Page Piccinini](https://datascienceplus.com/author/page-piccinini/), e inicialmente se resumirá a criar diretórios para organizar suas análises. 
+
+
+### Criando diretórios no seu projeto
+- Inicialmente crie seu projeto "ML_Aula_1" no diretório "ML_Aula_1" .
+Você pode criar o diretório quando criar o projeto no RStudio ou simplesmente criá-lo antes criar um novo projeto no RStudio.
+
+- Dentro do diretório do seu projeto, crie os seguintes subdiretórios:
+
+
+     - **dados**:  Esses diretório conterá os dados usados na sua análise.  Normalmente em uma versão ainda bruta, mas ainda não subetida ao préprocessamento.  Dessa forma será mais simples escrever seus sripts importando os dados desta fonte, já convertidos para o formato `Rdata`, ao invés de importar os dados da fonte original (*excel, csv, url e etc*.)    
+
+     - **figuras**: Como várias figuras vão sendo geradas ao longo da análise, é interessante salvar neste diretório algumas cópias para relatórios preliminares.
+  
+     - **scritps**:  Esse é um dos diretórios mais importantes do seu projeto.  Nele estarão todos os seus scrits (*arquivos de análise*), os quais serão aos poucos refinados durante o processo de análise.
+  
+     - **reports**: Aqui serão criados os arquivos geradores do seus relatórios de análise, que podem ser arquivos markdown criados no próprio ambiente do RStudio, arquivos em *Latex*, *MS Word* e etc.
+
+
+### Scripts de análise
+
+No diretório `scripts` uma boa dica dica a ser seguida é a indicada por Marcelo Perlin no [capítulo 9](https://msperlin.github.io/pmdfR-Online/desenvolvendo-scripts-de-pesquisa.html#a-estrutura-de-um-script-de-pesquisa) do seu livro, onde ele recomenda organizar os scrips de pesquisa em quatro etapas:
+
+- Importação dos dados
+- Limpeza e estruturação dos dados
+- Modelagem e teste de hipóteses
+- Reportando os resultados
+
+Mas o interessante é  a sugestão é criar uma nomenclatura para a nomeação dos scripts, relacionadas sequenciamente com as etapas da pesquisa. 
+
+> "Um exemplo seria nomear o código de importação de dados como 1-Import-and-clean-data.R, o código de modelagem como 2-build-report-models.R e assim sucessivamente. O efeito prático é que o uso de um contador na primeira letra do nome do arquivo faz com que a ordem de execução do programa fique bastante clara."
+>
+> --- Marcelo Perlin
+
+Mais adiante veremos como estruturar os scripts internamente. 
+

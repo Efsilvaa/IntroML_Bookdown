@@ -1,0 +1,285 @@
+
+#Estruturas de dados
+
+##Vetores
+A estrutura mais básica do __R__ é um vetor
+-   Um vetor pode conter apenas objetos da mesma classe básica
+-   Existe um outro objeto chamado *lista*, que é representado como um vetor, mas pode conter objetos de classes diferentes
+-   Vetores vazios podem ser criados com a função ```vector() ```.
+- O operador `:` é usado para gerar/representar uma sequência de números.
+
+```{r}
+ x <- 1:20 
+ x
+```
+
+## Criando Vetores
+
+A função `c()` concatena os seus argumentos em um vetor.
+
+```{r}
+ x <- c(0.5, 0.6)       ## numeric
+ 
+ x <- c(TRUE, FALSE)    ## logical
+ 
+ x <- c(T, F)           ## logical
+ 
+ x <- c("a", "b", "c")  ## character
+ 
+ x <- 9:29              ## integer
+ 
+ x <- c(1+0i, 2+4i)     ## complex
+ 
+```
+
+Para a criação de um vetor *vazio* podemos usar a função `vector()`
+
+```{r}
+ x <- vector("numeric", length = 10) 
+ x
+```
+
+
+## Atributos (Attributes)
+
+Os objetos em possuem vários atributos:
+
+    -   nomes, dimnames
+    -   dimensão (e.g. matrizes, arrays)
+    -   classe
+    -   comprimento
+    -   outras atributos definidos pelo usuário/metadata
+
+O nome dos atributos de um objeto pode ser acessado usando  a função `attributes()`.
+
+
+```{r}
+attributes(x)
+```
+
+
+## Misturando Objetos
+
+Quando objetos diferente são misturados em um vetor,  a **coerção** ajusta os tipos de modo que todos elementos mantenham sejam da mesma classe.
+
+```{r}
+ y <- c(1.7, "a")   ## character
+ y <- c(TRUE, 2)    ## numeric
+ y <- c("a", TRUE)  ## character
+```
+
+
+
+## Coerção explícita
+
+Objetos de uma classe podem ser sua classe alterada usando as funções `as.*()`
+
+```{r}
+ x <- 0:6
+ class(x)          # "integer"
+ as.numeric(x)  
+ as.logical(x)     # FALSE ....
+ as.character(x)   # "0" "1" "2" "3" "4" "5" "6"
+```
+
+Coerções não permitidas geram  `NA` (Não avaliado).
+
+```{r}
+ x <- c("a", "b", "c")
+ as.numeric(x)
+ as.logical(x)
+ as.complex(x)
+```
+
+
+## Matrizes
+
+
+Matrizes são vetores com duas ou mais _dimensões_. A dimensão é na verdade um vetor com dois valores inteiros (número de linhas, número d colunas).  Uma característica importante é que **todos os elementos de uma matriz são do mesmo tipo**.
+
+
+Use `attributes` para explorar a estrutura de um tipo de dados. 
+
+```{r}
+ m <- matrix(nrow = 2, ncol = 3) 
+ m
+
+dim(m)
+
+attributes(m)
+```
+
+
+_Matrizes_ normalmente são construídas _por colunas_, de modo que uma sequência de dados é lido como se estivesse se iniciando na posição superior esquerda, elemento na [linha,coluna] = [1,1], continuando até o último elemento da coluna, e assim por diante.
+
+```{r}
+ m <- matrix(1:6, nrow = 2, ncol = 3)
+ m
+```
+
+
+Contudo, as _matrizes_ podem também ser criadas a partir de vetores, basta definir seus atributos d dimensão, como no exemplo abaixo:
+
+```{r}
+ m <- 1:10 
+ m
+
+ dim(m) <- c(2, 5)
+ m
+ 
+```
+
+
+## _cbind-ing_ and _rbind-ing_
+
+Existem várias situações onde mais prático criar matrizes adicionando colunas as já existentes (_column-binding_) ou adicionando linhas (row-binding_) com `cbind()` and `rbind()`.
+
+```{r}
+ x <- 1:3
+ y <- 10:12
+ cbind(x, y)
+
+ rbind(x, y) 
+```
+
+## Listas (list)
+
+Listas é uma poderosa estrutura de dados.  É utilizada de várias formas no contexto de R, muitas vezes passando desapercebida.  Uma lista nada mais é que um vetor que pode conter elementos de diferentes classes.
+
+```{r}
+x <- list(1,"a",TRUE, 1 + 4i ) 
+x
+x[1]     # Primeiro classe da lista
+x[[1]]   # Primeiro elemento da primeira classe da lista
+
+```
+
+
+## Fator (factor)
+
+Fatores são usados para representar valores de variáveis categóricas.  Esses fatores podem ser ordenados ou não-ordenados.  Pode-se pensar nos fatores como sendo números inteiros, cada um representando uma categoria representado por um nome padrão (_label_).
+
+- Fatores são tratados de maneira distinta em algums modelos, como por exemplo regressão linear `lm()` e regressão linear generalizada `glm()`
+
+- Usar fatores com _nomes_ é melhor do que usar números devido a legibilidade e transparências.  Por exemplo, usar "Masculino" e "Feminino" descreve melhor os possiveis valores da variável categoria "Sexo" do que os valores 1 e 2.
+
+
+```{r}
+x <- factor(c("yes", "yes", "no", "yes", "no")) 
+x
+
+table(x) 
+
+unclass(x)  # retorna x sem os atributos da classe factor, ou seja, os níveis(levels)
+
+```
+
+
+A ordem dos níveis `levels` pode ser definida usando o argumento `levels` na função `factor()`.  Isso pode ser importante em modelos lineares como a _regressão linear_ já que o primeiro nível é usado como base.
+
+```{r}
+ x <- factor(c("yes", "yes", "no", "yes", "no"),
+              levels = c("yes", "no"))
+ x
+```
+
+Usando a função `attributes`
+```{r}
+attributes(x) #Aqui eu encontro o método "levels"
+levels(x)
+```
+
+
+## Valores ausentes (Missing Values)
+
+"Missing values" são definidos por `NA` (non-available) or `NaN` (not a number) e não são permitidos em algumas operações matemática. Muito usado!!!!  Não substimen sua utilidade quando estivermos limpando e ajustando os dados.
+
+- `is.na()` é usado para testar objetos se eles são `NA`
+
+- `is.nan()` é usado para testar elementos se eles são `NaN`
+
+- `NA` possuem classe.  Ou seja, existem inteiros `NA`, caracteres (_character_) `NA` e etc.
+
+- O `NaN` é também `NA` mas o inverso não é verdadeiro
+
+
+```{r MissingValues}
+x <- c(1, 2, NA, 10, 3)
+is.na(x)
+is.nan(x)
+
+x <- c(1, 2, NaN, NA, 4)
+is.na(x)
+is.nan(x)
+```
+
+
+## Data Frames (Finalmente a cereja do bolo :))
+
+Data frames é uma estrutura de dados usada para armazenar dados em tabela.  A diferença para matriz é que em data frames cada coluna pode conter um tipo de vaiável.  Ou seja, é simplesmente uma **tabela**  
+
+
+- Pode ser visto como um caso especial de lista onde todos os elementos da lista possuem o mesmo comprimento.
+
+- Cada elemento da lista é na verdade uma coluna de uma tabela, e o comprimento decada elemnto da lista o número de linhas da tabela.
+
+- Diferente das matrizes, data frames podem armazenar diferentes classes de objetos, uma em cada coluna (como uma lista); Todos os elementos das matrizes são da mesma classe
+
+- Data frames possuem um atributo especial chamado `row.names`
+
+- Data frames é o formato normalmente utilizado na importação de dados, resultado das funções `read.table()` ou `read.csv()`
+
+- Pode ser convertido para matriz por meio da função `data.matrix()`
+
+
+```{r dataframes}
+x <- data.frame(foo = 1:4, bar = c(T, T, F, F)) 
+x
+nrow(x)
+ncol(x)
+```
+
+## Nomes
+
+Objetos em R podem ter nomes associados, o que torna os códigos mais fácil de serem lidos e compreendidos.
+
+```{r}
+x <- 1:3
+names(x)
+names(x) <- c("foo", "bar", "norf") 
+x
+names(x)
+```
+
+
+Listas também podem ter nomes associados
+
+```{r}
+ x <- list(a = 1, b = 2, c = 3) 
+ x
+```
+
+E matrizes.
+
+```{r}
+m <- matrix(1:4, nrow = 2, ncol = 2)
+dimnames(m) <- list(c('a', 'b'), c('c', 'd')) 
+m
+```
+
+
+## Sumário
+
+Estruturas de Dados em R
+
+- classes básicas: numérica, lógica, caracter, inteiro, número complexo
+
+- vetores, listas
+
+- fatores
+
+- missing values
+
+- data frames
+
+- nomes
