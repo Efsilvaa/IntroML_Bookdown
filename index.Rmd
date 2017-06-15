@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib, MyCollection.bib]
+bibliography: [book.bib, packages.bib, myCitations.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: efsilvaa/IntroML_Bookdown
@@ -16,7 +16,7 @@ description: "Esse site complementa as notas de aula do curso EPSXXXX: Introduç
 
 Esse site complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máquina**.  As unidades apresentam os scripts em R dos exercícios apresentadados em sala.
 
-Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{ponto\}f{ponto\}Silva{em\}ufsc{ponto\}br
+Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{.\}f\{.\}Silva\{em\}ufsc\{.\}br
 
 ## Estrutura do livro {-}
 Os comandos em R serão apresentados blocos com o exemplo abaixo:
@@ -30,17 +30,22 @@ x
 # To compile this example to PDF, you need to install XeLaTeX.
 
 # automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+knitr::write_bib(
+  c(.packages(), 'bookdown', 'knitr','ggplot2', 'rmarkdown'),
+    'packages.bib')
 ```
 
 # Sobre o Autor {-}
 
 Eduardo F. Silva
+
 Professor
+
 Departamento de Engenharia de Produção e Sistemas
-*e\{ponto\}f\{ponto\}Silva\{em\}ufsc\{ponto\}br*
+
+Universidade Federal de Santa Catarina
+
+*e\{.\}f\{.\}Silva\{em\}ufsc\{.\}br*
 
 
 

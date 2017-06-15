@@ -1,5 +1,17 @@
 book_filename: "bookdown-IntroML"
 language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabela '
+    eq:  'Equação '
+    thm: 'Teorema '
+    lem: 'Lemma '
+    def: 'Definição '
+    cor: 'Corolario '
+    prp: 'Proposição '
+    ex:  'Exemplo '
+    proof: 'Prova '
+    remark: 'Remark ' 
   ui:
-    chapter_name: "Unidade "
+    chapter_name: 'Unidade '
 output_dir: docs

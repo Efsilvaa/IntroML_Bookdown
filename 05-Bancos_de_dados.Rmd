@@ -5,7 +5,7 @@ O Ambiente R já traz na sua biblioteca `base` vários conjuntos de dados que po
 ```{r eval=FALSE}
 data()              # Apresenta os vários conjuntos de dados disponíveis na sua sessão no R.
 help("USArrests")   # Abre na janela help informações sobre esses dados
-data(iris)          # Carreda os dados na sua sessão
+data("iris")          # Carrega os dados na sua sessão
 ```
 
  É comum os pacotes incorporarem outros dados que são utilizados no manual do pacote para explorar a funcionalidade do mesmo.
@@ -14,5 +14,4 @@ data(iris)          # Carreda os dados na sua sessão
 library(ggplot2)     # Carrege o pacote ggplot2
 data()               # Verifique os dados adicionais disponibilizados por esse pacote
 ```
-
 
