@@ -3,6 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       collapse: section
+      scroll_highlight: yes
       before: |
         <li><a href="./">Introdução ao Aprendizado Máquina</a></li>
       after: |
