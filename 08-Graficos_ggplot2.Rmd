@@ -237,7 +237,10 @@ p1 +
 
 ##  Aesthetic Mapping VS Assignment
 
-É importante frisar que as variáveis são mapeadas visualmente dentro da função `aes()`, enquanto que mapementos visual fixo (fixed aesthetics) como o tmanho de pontos deve ser realizado fora de `aes()`.
+```{block2, type = 'rmdnote'}
+É importante frisar que as variáveis são mapeadas visualmente dentro da função `aes()`, enquanto que mapementos visual fixo (fixed aesthetics) como o tamanho de pontos deve ser realizado fora de `aes()`.
+
+```
 
 Por exemplo: 
 ```{r}
@@ -637,7 +640,7 @@ ggplot(home.land.byyear,
 
 ggplot2:
 
-      - Mailing list: [http://groups.google.com/group/ggplot2]
-      - Wiki: [https://github.com/hadley/ggplot2/wiki]
-      - Website: [http://had.co.nz/ggplot2/]
-      - StackOverflow: [http://stackoverflow.com/questions/tagged/ggplot]
+      - Mailing list: [http://groups.google.com/group/ggplot2](http://groups.google.com/group/ggplot2)
+      - Wiki: [https://github.com/hadley/ggplot2/wiki](https://github.com/hadley/ggplot2/wiki)
+      - Website: [http://had.co.nz/ggplot2/](http://had.co.nz/ggplot2/)
+      - StackOverflow: [http://stackoverflow.com/questions/tagged/ggplot](http://stackoverflow.com/questions/tagged/ggplot)

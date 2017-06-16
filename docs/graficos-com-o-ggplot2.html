@@ -426,17 +426,21 @@ p1 +<span class="st"> </span><span class="kw">geom_point</span>(<span class="kw"
 </div>
 <div id="aesthetic-mapping-vs-assignment" class="section level2">
 <h2><span class="header-section-number">8.10</span> Aesthetic Mapping VS Assignment</h2>
-<p>É importante frisar que as variáveis são mapeadas visualmente dentro da função <code>aes()</code>, enquanto que mapementos visual fixo (fixed aesthetics) como o tmanho de pontos deve ser realizado fora de <code>aes()</code>.</p>
+
+<div class="rmdnote">
+<p>É importante frisar que as variáveis são mapeadas visualmente dentro da função <code>aes()</code>, enquanto que mapementos visual fixo (fixed aesthetics) como o tamanho de pontos deve ser realizado fora de <code>aes()</code>.</p>
+</div>
+<p></p>
 <p>Por exemplo:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 +
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">size =</span> <span class="dv">2</span>),  <span class="co"># Errado! 2 não é uma variável</span>
              <span class="dt">color=</span><span class="st">&quot;red&quot;</span>)    <span class="co"># ok -- todos os pontos devem ser *red*</span></code></pre></div>
-<p><img src="bookdown-IntroML_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><img src="bookdown-IntroML_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
 <p>Mais de uma variável mapeada em <code>aes()</code>:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p1 +
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color=</span>Home.Value, <span class="dt">shape =</span> region))</code></pre></div>
 <pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-IntroML_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><img src="bookdown-IntroML_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
 </div>
 <div id="exercicio-i" class="section level2">
 <h2><span class="header-section-number">8.11</span> Exercicio I</h2>
@@ -458,10 +462,10 @@ Esses dados revelam o Índice de Desenvolvimento Humano(HDI) e o Índice Corrup�
 <div id="recursos-adicionais" class="section level2">
 <h2><span class="header-section-number">8.12</span> Recursos adicionais</h2>
 <p>ggplot2:</p>
-<pre><code>  - Mailing list: [http://groups.google.com/group/ggplot2]
-  - Wiki: [https://github.com/hadley/ggplot2/wiki]
-  - Website: [http://had.co.nz/ggplot2/]
-  - StackOverflow: [http://stackoverflow.com/questions/tagged/ggplot]</code></pre>
+<pre><code>  - Mailing list: [http://groups.google.com/group/ggplot2](http://groups.google.com/group/ggplot2)
+  - Wiki: [https://github.com/hadley/ggplot2/wiki](https://github.com/hadley/ggplot2/wiki)
+  - Website: [http://had.co.nz/ggplot2/](http://had.co.nz/ggplot2/)
+  - StackOverflow: [http://stackoverflow.com/questions/tagged/ggplot](http://stackoverflow.com/questions/tagged/ggplot)</code></pre>
 
 </div>
 </div>
@@ -514,7 +518,8 @@ gitbook.start({
 },
 "download": ["bookdown-IntroML.pdf", "bookdown-IntroML.epub"],
 "toc": {
-"collapse": "section"
+"collapse": "section",
+"scroll_highlight": true
 }
 });
 });
