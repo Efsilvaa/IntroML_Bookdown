@@ -14,9 +14,45 @@ description: "Esse site complementa as notas de aula do curso EPSXXXX: Introduç
 
 # Prefácio {-}
 
+```{r setupSol, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+uncover <- function(before, options, envir) {
+    if (before) {
+        id <- options$id
+        button_string <- paste0("<button onclick=\"uncover('", 
+                                id, 
+                                "')\">Solução</button>")
+        div_string <- paste0("<div id = '", id, 
+                             "', style = 'display:none'>")
+        paste0(button_string, "\n", div_string)
+    }
+    else {
+        "</div><br>"
+    }
+}
+
+knitr::knit_hooks$set(uncover = uncover)
+
+# Script em uncover.html _output.yaml
+#<script>
+#function uncover(id) {
+#    var x = document.getElementById(id);
+  #   if (x.style.display === "block") {
+  #     x.style.display = "none";
+  #   } else {
+  #     x.style.display = "block";
+  # }
+#}
+#</script>
+```
+
+
+
+
 Esse site complementa a disciplina **EPS:XXXX Introdução ao Aprendizado Máquina**.  As unidades apresentam os scripts em R dos exercícios apresentadados em sala.
 
-Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{.\}f\{.\}Silva\{em\}ufsc\{.\}br
+Esse é um material ainda em construção.  Todas as sugestões e correções são bem vindas e podem enviadas para e\{ponto\}f\{ponto\}Silva\{em\}ufsc\{ponto\}br
 
 ## Estrutura do livro {-}
 Os comandos em R serão apresentados blocos com o exemplo abaixo:
@@ -26,11 +62,19 @@ x
 ```
 
 
-```{r include=FALSE}
+```{r bib, include=FALSE}
 # To compile this example to PDF, you need to install XeLaTeX.
 
 # automatically create a bib database for R packages
 knitr::write_bib(
-  c(.packages(), 'bookdown', 'knitr','ggplot2', 'rmarkdown'),
+  c(.packages(), 'bookdown', 'knitr','ggplot2', 'rmarkdown','tidyverse','dplyr'),
     'packages.bib')
+```
+
+##Soluções ocultas {-}
+
+Alguns comando em R, geralmente relacionados à algum exercício, poderão ter sua apresentação oculta.  Bastando pressionar o botão `solução` para que a mesma seja apresentada.
+
+```{r, uncover = TRUE, id = "script"}
+1 + 1
 ```

@@ -1,5 +1,9 @@
 bookdown::gitbook:
-  css: style.css
+  css: [css/style.css,css/efsilvaa.css]
+  includes:
+    in_header: scripts/uncover.html #, scripts/disqus_comment_count.html]
+    #after_body: scripts/disqus.html
+  
   config:
     toc:
       collapse: section

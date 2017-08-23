@@ -24,11 +24,9 @@ x <- "Bem vindo"
 
 -   Números em R são geralmente tratados como objetos (ex. Números reais)
 
--   Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo ```L```
+-   Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo `L`
 
--   O valor ```NaN``` representa um valor não identificado (*"not a number"*);
-      e.g. 0 / 0; ```NaN``` pode também representar valores ausentes (não se preocupe agora com isso, mas mostra
-      que a linguagem foi concebida para identificar essa situação )
+-   O valor `NaN`(*"not a number"*) representa um valor associado a uma operação aritmética não definida (  e.g. 0 / 0); `NaN` pode também representar valores ausentes (como veremos mais adiante).
 
 ###Numérico
 ```{r}

@@ -1,5 +1,4 @@
 
-
 # Gráficos com o **ggplot2**
 
 
@@ -237,7 +236,7 @@ p1 +
 
 ##  Aesthetic Mapping VS Assignment
 
-```{block2, type = 'rmdnote'}
+```{block2, notaImportante, type = 'rmdimportant'}
 É importante frisar que as variáveis são mapeadas visualmente dentro da função `aes()`, enquanto que mapementos visual fixo (fixed aesthetics) como o tamanho de pontos deve ser realizado fora de `aes()`.
 
 ```

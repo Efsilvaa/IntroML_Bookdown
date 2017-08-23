@@ -25,7 +25,7 @@
 <meta name="author" content="Eduardo F. Silva">
 
 
-<meta name="date" content="2017-06-16">
+<meta name="date" content="2017-08-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,16 @@
 
 
 
+<script>
+function uncover(id) {
+    var x = document.getElementById(id);
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+}
+</script>
 
 
 <style type="text/css">
@@ -87,7 +97,8 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css\efsilvaa.css" type="text/css" />
 </head>
 
 <body>
@@ -105,6 +116,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#estrutura-do-livro"><i class="fa fa-check"></i>Estrutura do livro</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#solucoes-ocultas"><i class="fa fa-check"></i><b>0.1</b> Soluções ocultas</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-o-autor.html"><a href="sobre-o-autor.html"><i class="fa fa-check"></i>Sobre o Autor</a></li>
 <li class="part"><span><b>Parte I</b></span></li>
@@ -217,6 +229,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.11" data-path="graficos-com-o-ggplot2.html"><a href="graficos-com-o-ggplot2.html#exercicio-i"><i class="fa fa-check"></i><b>8.11</b> Exercicio I</a></li>
 <li class="chapter" data-level="8.12" data-path="graficos-com-o-ggplot2.html"><a href="graficos-com-o-ggplot2.html#recursos-adicionais"><i class="fa fa-check"></i><b>8.12</b> Recursos adicionais</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="manipulando-dados.html"><a href="manipulando-dados.html"><i class="fa fa-check"></i><b>9</b> Manipulando Dados</a><ul>
+<li class="chapter" data-level="9.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#tibbles"><i class="fa fa-check"></i><b>9.1</b> Tibbles</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#usando-tibbles"><i class="fa fa-check"></i><b>9.1.1</b> Usando <code>tibbles</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="manipulando-dados.html"><a href="manipulando-dados.html#dados"><i class="fa fa-check"></i><b>9.2</b> Dados</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#carregando-os-dados"><i class="fa fa-check"></i><b>9.2.1</b> Carregando os dados</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="manipulando-dados.html"><a href="manipulando-dados.html#funcoes-basicas"><i class="fa fa-check"></i><b>9.3</b> Funções básicas</a></li>
+<li class="chapter" data-level="9.4" data-path="manipulando-dados.html"><a href="manipulando-dados.html#filtrando-registros-linhas"><i class="fa fa-check"></i><b>9.4</b> Filtrando registros (linhas)</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#exercicios"><i class="fa fa-check"></i><b>9.4.1</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="manipulando-dados.html"><a href="manipulando-dados.html#organizando-registros-linhas"><i class="fa fa-check"></i><b>9.5</b> Organizando registros (linhas)</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#exercicios-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercícios</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="manipulando-dados.html"><a href="manipulando-dados.html#selecionando-variaveis-colunas"><i class="fa fa-check"></i><b>9.6</b> Selecionando variáveis (colunas)</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#funcoes-de-apoio-em-select"><i class="fa fa-check"></i><b>9.6.1</b> Funções de apoio em <code>select()</code></a></li>
+<li class="chapter" data-level="9.6.2" data-path="manipulando-dados.html"><a href="manipulando-dados.html#exercicio"><i class="fa fa-check"></i><b>9.6.2</b> Exercício</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="manipulando-dados.html"><a href="manipulando-dados.html#criando-novas-variaveis"><i class="fa fa-check"></i><b>9.7</b> Criando novas variáveis</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#exercicios-2"><i class="fa fa-check"></i><b>9.7.1</b> Exercícios:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="manipulando-dados.html"><a href="manipulando-dados.html#sumarizando-dados-grupados"><i class="fa fa-check"></i><b>9.8</b> Sumarizando dados grupados</a></li>
+<li class="chapter" data-level="9.9" data-path="manipulando-dados.html"><a href="manipulando-dados.html#pipes"><i class="fa fa-check"></i><b>9.9</b> Pipes</a></li>
+<li class="chapter" data-level="9.10" data-path="manipulando-dados.html"><a href="manipulando-dados.html#dados-ausentes"><i class="fa fa-check"></i><b>9.10</b> Dados ausentes</a><ul>
+<li class="chapter" data-level="9.10.1" data-path="manipulando-dados.html"><a href="manipulando-dados.html#contando-os-na"><i class="fa fa-check"></i><b>9.10.1</b> Contando os NA</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="manipulando-dados.html"><a href="manipulando-dados.html#outros-exemplos-de-funcoes-agregadoras"><i class="fa fa-check"></i><b>9.11</b> Outros exemplos de funções agregadoras</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -256,7 +296,7 @@ x &lt;-<span class="st"> &quot;Bem vindo&quot;</span></code></pre></div>
 <ul>
 <li><p>Números em R são geralmente tratados como objetos (ex. Números reais)</p></li>
 <li><p>Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo <code>L</code></p></li>
-<li><p>O valor <code>NaN</code> representa um valor não identificado (<em>“not a number”</em>); e.g. 0 / 0; <code>NaN</code> pode também representar valores ausentes (não se preocupe agora com isso, mas mostra que a linguagem foi concebida para identificar essa situação )</p></li>
+<li><p>O valor <code>NaN</code>(<em>“not a number”</em>) representa um valor associado a uma operação aritmética não definida ( e.g. 0 / 0); <code>NaN</code> pode também representar valores ausentes (como veremos mais adiante).</p></li>
 </ul>
 <div id="numerico" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Numérico</h3>

@@ -1,6 +1,6 @@
 # Mais operações básicas em R
 
-Para esse tópico vamos seguir como referência o [https://msperlin.github.io/pmdfR-Online/operacoes-basicas-no-r.html](capítulo 2 no livro do Marcelo Perlim).
+Para esse tópico vamos seguir como referência o [capítulo 2 no livro do Marcelo Perlim](https://msperlin.github.io/pmdfR-Online/operacoes-basicas-no-r.html).
 
 Finalmente, é importante ainda enfatizar os seguinte tópicos:
 

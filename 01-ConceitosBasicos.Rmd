@@ -58,12 +58,10 @@ Observe que o RStudio automaticamente inclui espaços ` <-`, o que é uma boa pr
  
 x <- 5    ## nada é impresso
 
+x         ## auto-printing 
 #`[1]` indica que o primeiro elemento contido em `x` é o valor `5`.
 
-x         ## auto-printing 
-
-print(x)  ## o valor é impresso como resultado (nunca é usado!)
-          ## já que a opção anterior é mais prática
+print(x)  ## o valor é impresso como resultado (raramente é usado, já que a opção anterior é mais prática)
 ```
 
 

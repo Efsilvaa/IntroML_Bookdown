@@ -192,13 +192,17 @@ levels(x)
 
 ## Valores ausentes (Missing Values)
 
-"Missing values" são definidos por `NA` (non-available) or `NaN` (not a number) e não são permitidos em algumas operações matemática. Muito usado!!!!  Não substimen sua utilidade quando estivermos limpando e ajustando os dados.
+"Missing values" são definidos por `NA` (non-available) or `NaN` (not a number) e não são permitidos em algumas operações matemática. Muito usado!!!!
+
+Não substimen sua utilidade quando estivermos limpando e ajustando os dados.
 
 - `is.na()` é usado para testar objetos se eles são `NA`
 
 - `is.nan()` é usado para testar elementos se eles são `NaN`
 
 - `NA` possuem classe.  Ou seja, existem inteiros `NA`, caracteres (_character_) `NA` e etc.
+
+- `NaN` é usado para representar resultados de operações matemáticas não definidas, como `0/0` ou `infinito - ìnfinito`.
 
 - O `NaN` é também `NA` mas o inverso não é verdadeiro
 
@@ -282,4 +286,4 @@ Estruturas de Dados em R
 
 - data frames
 
-- nomes
+E finalmente, é importante entender como os nomes são associados aos objetos em R
