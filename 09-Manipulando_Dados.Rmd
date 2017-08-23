@@ -506,7 +506,7 @@ Note que há grandes variações quando o número de voos é menor.  O que pode 
 
 Vamos repetir o gráfico acima considerando somente os atrasos onde a média considerou mais de 25 voos.
 
-```{r, uncover = TRUE, id = "n>25"}
+```{r, uncover = TRUE, id = "n25"}
 delays %>% filter(n > 25) %>% 
 ggplot( mapping = aes(x = n, y = delay)) + 
   geom_point(alpha = 1/10)
@@ -523,7 +523,9 @@ not_cancelled %>%
   group_by(year, month, day) %>% 
   summarise(
     avg_delay1 = mean(arr_delay),
-    avg_delay2 = mean(arr_delay[arr_delay > 0]) # Considere somente os atrasos (positivos)
+    
+    # Considere somente os atrasos (positivos)
+    avg_delay2 = mean(arr_delay[arr_delay > 0]) 
   )
 
 ```
@@ -561,7 +563,7 @@ popular_dests
 ```
 
 
-O RStudio[RStudio](www.rstudio.com) disponibiliza uma folha de resumo para pacotes **Dplyr** e **Tidyr** ([Data Wrangling Cheatsheet - RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)). 
+O [RStudio](www.rstudio.com) disponibiliza uma folha de resumo para pacotes **Dplyr** e **Tidyr** ([Data Wrangling Cheatsheet - RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)). 
 
 Para conhecer mais consulte o livro  [R for Data Science de Garrett Grolemund e Hadley Wickham](http://r4ds.had.co.nz/) [@Grolemund2016].
 
